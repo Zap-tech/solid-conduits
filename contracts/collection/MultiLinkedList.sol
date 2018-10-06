@@ -314,7 +314,7 @@ contract MultiLinkedList {
 
     /// @dev Retrieves the first element in the linked list defined by
     /// the next element pointer `index`.
-    /// @param index The index of the next element in the linked list.
+    /// @param bkey The key representing a unique linked list.
     /// @return The iterator index of the linked_list, or the
     /// NULL value (0) if it is the end of the list.
     function first(bytes32 bkey) public view returns(uint) {
@@ -324,7 +324,7 @@ contract MultiLinkedList {
     
     /// @dev Retrieves the second element in the linked list defined by
     /// the next element pointer `index`.
-    /// @param index The index of the next element in the linked list.
+    /// @param bkey The key representing a unique linked list.
     /// @return The iterator index of the linked_list, or the
     /// NULL value (0) if it is the end of the list.
     function second(bytes32 bkey) public view returns(uint) {
@@ -334,7 +334,7 @@ contract MultiLinkedList {
 
     /// @dev Retrieves the last element in the linked list defined by
     /// the next element pointer `index`.
-    /// @param index The index of the next element in the linked list.
+    /// @param bkey The key representing a unique linked list.
     /// @return The iterator index of the linked_list, or the
     /// NULL value (0) if the list is empty.
     function last(bytes32 bkey) public view returns(uint) {

@@ -1,18 +1,21 @@
 pragma solidity ^0.4.24;
 
-import "remix_tests.sol";
-import "./MultiLinkedList.sol";
+import "truffle/Assert.sol";
+//import "remix_tests.sol";
+import "../../contracts/collection/MultiLinkedList.sol";
 
+// Contract to generate a random address
 contract GenAddress {
     
 }
 
-contract MultiLinkedListTest {
+contract TestMultiLinkedList {
     MultiLinkedList mlist;
     bytes32 public fooKey = keccak256("foo");
     bytes32 public barKey = keccak256("bar");
     bytes32 public bazKey = keccak256("baz");
 
+    /// Generate a Random Address
     function genAddress() private returns(address) {
         GenAddress gen = new GenAddress();
         return address(gen);
@@ -23,13 +26,13 @@ contract MultiLinkedListTest {
         mlist = new MultiLinkedList();
     }
     
-    function initialValuesShouldBeZero() public {
+    function testInitialValuesShouldBeZero() public {
         Assert.equal(mlist.count(fooKey), 0, "Foo must be zero");
         Assert.equal(mlist.count(barKey), 0, "Bar must be zero");
         Assert.equal(mlist.count(bazKey), 0, "Baz must be zero");
     }
     
-    function pushingOneValue() public {
+    function testPushingOneValue() public {
         address addr1 = genAddress();
         mlist.push(fooKey, addr1);
         
@@ -38,7 +41,7 @@ contract MultiLinkedListTest {
         Assert.equal(mlist.count(bazKey), 0, "Baz must be zero");
     }
     
-    function pushingTwoValues() public {
+    function testPushingTwoValues() public {
         address addr1 = genAddress();
         address addr2 = genAddress();
         mlist.push(fooKey, addr1);
@@ -49,7 +52,7 @@ contract MultiLinkedListTest {
         Assert.equal(mlist.count(bazKey), 0, "Baz must be zero");
     }
     
-    function pushingMultipleValues() public {
+    function testPushingMultipleValues() public {
         address addr1 = genAddress();
         address addr2 = genAddress();
         address addr3 = genAddress();
@@ -67,14 +70,14 @@ contract MultiLinkedListTest {
         Assert.equal(mlist.count(bazKey), 1, "Baz must be one");
     }
     
-    function testingNthValue_1() public {
+    function testNthValue_1() public {
         address addr1 = genAddress();
         mlist.push(fooKey, addr1);
         
         Assert.equal(mlist.nth(fooKey, 0), addr1, "Value should be equal");
     }
     
-    function testingNthValue_2() public {
+    function testNthValue_2() public {
         address addr1 = genAddress();
         address addr2 = genAddress();
         address addr3 = genAddress();
@@ -94,7 +97,7 @@ contract MultiLinkedListTest {
         Assert.equal(mlist.nth(bazKey, 0), addr5, "Address 5 Retrieval");
     }
     
-    function removeOneValue_1() public {
+    function testRemoveOneValue_1() public {
         address addr1 = genAddress();
         address addr2 = genAddress();
         mlist.push(fooKey, addr1);
@@ -118,7 +121,7 @@ contract MultiLinkedListTest {
         
     }
     
-    function removeOneValue_2() public {
+    function testRemoveOneValue_2() public {
         address addr1 = genAddress();
         address addr2 = genAddress();
         mlist.push(fooKey, addr1);
