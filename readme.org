@@ -1,0 +1,21 @@
+#+TITLE: SolidForge - A Collection of Solidity Contracts and Libraries
+#+AUTHOR: Benjamin Zaporzan
+#+DATE: 2018-10-06
+#+EMAIL: benzaporzan@gmail.com
+#+LANGUAGE: en
+#+OPTIONS: H:2 num:t toc:t \n:nil ::t |:t ^:t f:t tex:t
+
+For now this repository is pretty empty. I'm hoping to put time into
+coming up with and pulling the best contract and library designs and
+implementations out of the community and place them here where these
+ideas can be battle-tested and documented for use-cases within the
+world of blockchain world.
+
+* Programming Tasks
+
+  - [ ] Setup a Test Suite to test the contracts
+    Possible Contenders:
+    - [[https://github.com/ethereum/remix/tree/master/remix-tests][remix-tests]]
+
+  - [ ] Finish up MultipleLinkedList collection draft and fully test
+    it.
